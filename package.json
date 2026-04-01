@@ -1,0 +1,26 @@
+{
+  "name": "achika",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss -i src/input.css -o public/tailwind.css --minify",
+    "dev": "tailwindcss -i src/input.css -o public/tailwind.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anapadiuk/achika.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/anapadiuk/achika/issues"
+  },
+  "homepage": "https://github.com/anapadiuk/achika#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.2",
+    "tailwindcss": "^4.2.2"
+  }
+}

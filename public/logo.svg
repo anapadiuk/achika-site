@@ -1,0 +1,45 @@
+<svg
+    width="230"
+    height="56"
+    viewBox="47 17 230 56"
+    xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <rect id="card" width="16" height="10" rx="2" ry="2"/>
+    </defs>
+
+    <g transform="translate(56 28) skewY(-12)">
+        <g fill="#1f7a3f" transform="translate(0 0)">
+            <use href="#card" x="0" y="0"/>
+            <use href="#card" x="18" y="12"/>
+            <use href="#card" x="36" y="0"/>
+            <use href="#card" x="36" y="12"/>
+            <use href="#card" x="36" y="24"/>
+        </g>
+
+        <g fill="#5DAA62" transform="translate(-4 4)">
+            <use href="#card" x="0" y="12"/>
+            <use href="#card" x="36" y="0"/>
+            <use href="#card" x="18" y="24"/>
+            <use href="#card" x="36" y="12"/>
+            <use href="#card" x="36" y="24"/>
+        </g>
+
+        <g fill="#B4E8A8" transform="translate(-8 8)">
+            <use href="#card" x="0" y="0"/>
+            <use href="#card" x="0" y="12"/>
+            <use href="#card" x="18" y="12"/>
+            <use href="#card" x="36" y="0"/>
+            <use href="#card" x="0" y="24"/>
+        </g>
+    </g>
+
+    <text
+        x="112"
+        y="48"
+        fill="#1f7a3f"
+        font-family="Inter, sans-serif"
+        dominant-baseline="middle"
+        font-size="50"
+        font-weight="500"
+        letter-spacing="0.04em">Achika</text>
+</svg>

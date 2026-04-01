@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Achika — Order and Inventory Management</title>
+    <meta
+      name="description"
+      content="Achika helps small manufacturers and distributors manage orders and inventory without spreadsheets or complex ERP systems."
+    />
+    <link rel="stylesheet" href="public/tailwind.css">
+    <link rel="icon" href="public/favicon.svg" type="image/svg+xml">
+  </head>
+  <body class="bg-slate-50 text-slate-900 antialiased">
+    <div class="min-h-screen">
+      <header class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+          <a href="#top">
+            <img src="public/logo.svg" alt="Achika" class="h-10">
+          </a>
+
+          <nav class="hidden items-center gap-8 text-sm text-slate-600 md:flex">
+            <a href="#product" class="transition hover:text-slate-950">Product</a>
+            <a href="#fit" class="transition hover:text-slate-950">Who it is for</a>
+            <a href="#about" class="transition hover:text-slate-950">About</a>
+            <a href="#contact" class="transition hover:text-slate-950">Contact</a>
+          </nav>
+
+          <div class="flex items-center gap-4">
+            <div class="hidden items-center gap-2 text-sm md:flex">
+              <span class="font-semibold text-slate-950">EN</span>
+              <span class="text-slate-300">|</span>
+              <a href="lt/" class="text-slate-400 transition hover:text-slate-700">LT</a>
+            </div>
+            <a
+              href="https://app.achika.lt/demo"
+              class="hidden rounded-xl border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:text-slate-950 sm:inline-flex"
+            >
+              View live demo
+            </a>
+            <a
+              href="https://app.achika.lt/"
+              class="inline-flex rounded-xl bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
+            >
+              Open app
+            </a>
+            <button id="menu-toggle" class="md:hidden rounded-lg p-2 text-slate-700 transition hover:bg-slate-100" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+              <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+              </svg>
+              <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-6 py-4">
+          <nav class="flex flex-col gap-1 text-sm text-slate-600">
+            <a href="#product" class="rounded-lg px-3 py-2 transition hover:bg-slate-50 hover:text-slate-950">Product</a>
+            <a href="#fit" class="rounded-lg px-3 py-2 transition hover:bg-slate-50 hover:text-slate-950">Who it is for</a>
+            <a href="#about" class="rounded-lg px-3 py-2 transition hover:bg-slate-50 hover:text-slate-950">About</a>
+            <a href="#contact" class="rounded-lg px-3 py-2 transition hover:bg-slate-50 hover:text-slate-950">Contact</a>
+          </nav>
+          <div class="mt-4 flex items-center gap-3 border-t border-slate-100 pt-4 text-sm">
+            <span class="font-semibold text-slate-950">EN</span>
+            <span class="text-slate-300">|</span>
+            <a href="lt/" class="text-slate-400 transition hover:text-slate-700">LT</a>
+          </div>
+          <div class="mt-4 flex flex-col gap-2">
+            <a
+              href="https://app.achika.lt/demo"
+              class="inline-flex items-center justify-center rounded-xl border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:text-slate-950"
+            >
+              View live demo
+            </a>
+            <a
+              href="https://app.achika.lt/"
+              class="inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
+            >
+              Open app
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="relative overflow-hidden">
+          <div class="absolute inset-0 -z-10 bg-gradient-to-b from-white via-slate-50 to-slate-100"></div>
+          <div class="mx-auto grid max-w-7xl gap-14 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-28">
+            <div class="max-w-2xl">
+              <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-sm text-slate-600 shadow-sm">
+                <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+                Achika Platform
+              </div>
+
+              <h1 class="text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+                Stay in control of orders and inventory
+                <span class="text-slate-500">as your business grows beyond spreadsheets</span>
+              </h1>
+
+              <p class="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+                A simple system for small manufacturers and distributors who are starting to outgrow Excel, email, and manual coordination.
+              </p>
+
+              <p class="mt-4 text-base text-slate-500">
+                No complex ERP systems. No heavy setup.
+              </p>
+
+              <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="https://app.achika.lt/demo"
+                  class="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-6 py-3 text-base font-medium text-white transition hover:bg-slate-800"
+                >
+                  View live demo
+                </a>
+                <a
+                  href="#contact"
+                  class="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-3 text-base font-medium text-slate-700 transition hover:border-slate-400 hover:text-slate-950"
+                >
+                  Request a walkthrough
+                </a>
+              </div>
+
+              <div class="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-500">
+                <span>No signup required</span>
+                <span>Takes a few minutes to explore</span>
+                <span>Real product demo</span>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div class="rounded-[2rem] border border-slate-200 bg-white p-4 shadow-[0_20px_80px_-30px_rgba(15,23,42,0.35)]">
+                <div class="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-4">
+                  <div class="mb-4 flex items-center justify-between border-b border-slate-200 pb-4">
+                    <div>
+                      <div class="text-sm font-semibold text-slate-900">Operations overview</div>
+                      <div class="text-xs text-slate-500">Orders, stock, and fulfillment in one place</div>
+                    </div>
+                    <div class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">Live demo</div>
+                  </div>
+
+                  <div class="grid gap-3 sm:grid-cols-3">
+                    <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
+                      <div class="text-sm text-slate-500">Open orders</div>
+                      <div class="mt-2 text-3xl font-semibold text-slate-950">128</div>
+                    </div>
+                    <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
+                      <div class="text-sm text-slate-500">Items to fulfill</div>
+                      <div class="mt-2 text-3xl font-semibold text-slate-950">342</div>
+                    </div>
+                    <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
+                      <div class="text-sm text-slate-500">Low stock items</div>
+                      <div class="mt-2 text-3xl font-semibold text-slate-950">27</div>
+                    </div>
+                  </div>
+
+                  <div class="mt-4 grid gap-4 lg:grid-cols-[0.95fr_1.05fr]">
+                    <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
+                      <div class="mb-3 text-sm font-semibold text-slate-900">Needs attention</div>
+                      <div class="space-y-3 text-sm text-slate-600">
+                        <div class="rounded-xl bg-amber-50 p-3 text-amber-900 ring-1 ring-amber-200">
+                          <div class="font-medium">Blocked items — 18</div>
+                          <div class="mt-1 text-amber-800">Top reason: no stock</div>
+                        </div>
+                        <div class="rounded-xl bg-rose-50 p-3 text-rose-900 ring-1 ring-rose-200">
+                          <div class="font-medium">Delayed receipts — 6</div>
+                          <div class="mt-1 text-rose-800">Incoming supply behind schedule</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
+                      <div class="mb-3 flex items-center justify-between">
+                        <div class="text-sm font-semibold text-slate-900">Recent orders</div>
+                        <div class="text-xs text-slate-500">Updated just now</div>
+                      </div>
+                      <div class="space-y-3 text-sm">
+                        <div class="flex items-center justify-between rounded-xl bg-slate-50 px-3 py-3">
+                          <div>
+                            <div class="font-medium text-slate-900">ORD-24031</div>
+                            <div class="text-slate-500">Oak table set</div>
+                          </div>
+                          <span class="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">Picking</span>
+                        </div>
+                        <div class="flex items-center justify-between rounded-xl bg-slate-50 px-3 py-3">
+                          <div>
+                            <div class="font-medium text-slate-900">ORD-24032</div>
+                            <div class="text-slate-500">Dining chairs</div>
+                          </div>
+                          <span class="rounded-full bg-violet-50 px-3 py-1 text-xs font-medium text-violet-700">Sourcing</span>
+                        </div>
+                        <div class="flex items-center justify-between rounded-xl bg-slate-50 px-3 py-3">
+                          <div>
+                            <div class="font-medium text-slate-900">ORD-24033</div>
+                            <div class="text-slate-500">Shelving unit</div>
+                          </div>
+                          <span class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">Ready</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="product" class="border-y border-slate-200 bg-white">
+          <div class="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
+            <div class="max-w-3xl">
+              <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Product</p>
+              <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">A clear system for day-to-day operations</h2>
+              <p class="mt-4 text-lg leading-8 text-slate-600">
+                Achika brings together the parts of the workflow that usually end up scattered across spreadsheets, messages, and memory.
+              </p>
+            </div>
+
+            <div class="mt-10 grid gap-6 lg:grid-cols-3">
+              <article class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                <div class="text-sm font-semibold text-slate-900">Orders</div>
+                <p class="mt-3 text-sm leading-7 text-slate-600">
+                  Keep all orders in one place, track their status, and make it easier for the team to see what needs attention.
+                </p>
+              </article>
+              <article class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                <div class="text-sm font-semibold text-slate-900">Inventory</div>
+                <p class="mt-3 text-sm leading-7 text-slate-600">
+                  See what is in stock, what is running low, and what is expected from incoming supply.
+                </p>
+              </article>
+              <article class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                <div class="text-sm font-semibold text-slate-900">Fulfillment</div>
+                <p class="mt-3 text-sm leading-7 text-slate-600">
+                  Track what is being sourced, produced, picked, and prepared for delivery without constant manual follow-up.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-slate-50">
+          <div class="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
+            <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+              <div>
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Why it becomes useful</p>
+                <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+                  When order volume grows, spreadsheets become harder to manage
+                </h2>
+              </div>
+
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div class="rounded-3xl border border-slate-200 bg-white p-6">
+                  <div class="text-base font-medium text-slate-900">Orders get lost or delayed</div>
+                  <p class="mt-3 text-sm leading-7 text-slate-600">The workflow becomes harder to track when information is spread across multiple places.</p>
+                </div>
+                <div class="rounded-3xl border border-slate-200 bg-white p-6">
+                  <div class="text-base font-medium text-slate-900">Stock is unclear</div>
+                  <p class="mt-3 text-sm leading-7 text-slate-600">It becomes difficult to know what is available right now and what still needs to arrive.</p>
+                </div>
+                <div class="rounded-3xl border border-slate-200 bg-white p-6">
+                  <div class="text-base font-medium text-slate-900">Knowledge is concentrated</div>
+                  <p class="mt-3 text-sm leading-7 text-slate-600">Too much depends on one person remembering the current state of orders and inventory.</p>
+                </div>
+                <div class="rounded-3xl border border-slate-200 bg-white p-6">
+                  <div class="text-base font-medium text-slate-900">Status questions never stop</div>
+                  <p class="mt-3 text-sm leading-7 text-slate-600">The team keeps asking for updates because there is no single place to check progress.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="fit" class="bg-white">
+          <div class="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
+            <div class="grid gap-12 lg:grid-cols-2">
+              <div>
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Who it is for</p>
+                <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">Built for small teams managing physical goods</h2>
+                <ul class="mt-6 space-y-4 text-base text-slate-600">
+                  <li class="flex gap-3"><span class="mt-2 h-2.5 w-2.5 rounded-full bg-slate-900"></span><span>Small manufacturers and distributors with 2–10 employees</span></li>
+                  <li class="flex gap-3"><span class="mt-2 h-2.5 w-2.5 rounded-full bg-slate-900"></span><span>Teams managing orders in spreadsheets, email, or chat</span></li>
+                  <li class="flex gap-3"><span class="mt-2 h-2.5 w-2.5 rounded-full bg-slate-900"></span><span>Businesses with growing order volume and a repeatable workflow</span></li>
+                  <li class="flex gap-3"><span class="mt-2 h-2.5 w-2.5 rounded-full bg-slate-900"></span><span>Companies not ready for a complex ERP implementation</span></li>
+                </ul>
+              </div>
+
+              <div class="rounded-[2rem] border border-slate-200 bg-slate-50 p-8">
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Simple by design</p>
+                <h3 class="mt-3 text-2xl font-semibold tracking-tight text-slate-950">A practical system, not an enterprise project</h3>
+                <div class="mt-6 space-y-5 text-sm leading-7 text-slate-600">
+                  <p>No ERP-level complexity.</p>
+                  <p>No long implementation process.</p>
+                  <p>Start quickly with your existing workflow and get visibility into orders, stock, and fulfillment in one place.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-slate-950 text-white">
+          <div class="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
+            <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+              <div class="max-w-2xl">
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Demo</p>
+                <h2 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Explore the system yourself</h2>
+                <p class="mt-4 text-lg leading-8 text-slate-300">
+                  Open a working demo in seconds and see how orders, inventory, and fulfillment are managed in practice.
+                </p>
+              </div>
+              <div class="flex flex-col gap-3 sm:flex-row lg:flex-col">
+                <a
+                  href="https://app.achika.lt/demo"
+                  class="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-base font-medium text-slate-950 transition hover:bg-slate-100"
+                >
+                  View live demo
+                </a>
+                <a
+                  href="#contact"
+                  class="inline-flex items-center justify-center rounded-2xl border border-slate-700 px-6 py-3 text-base font-medium text-white transition hover:border-slate-500 hover:bg-slate-900"
+                >
+                  Request a walkthrough
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" class="bg-white">
+          <div class="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
+            <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+              <div>
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">About</p>
+                <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">A focused product for real operational work</h2>
+              </div>
+              <div class="space-y-5 text-base leading-8 text-slate-600">
+                <p>
+                  Achika is built to help small manufacturers and distributors manage orders and inventory without unnecessary complexity.
+                </p>
+                <p>
+                  The product focuses on clarity, simplicity, and everyday operational needs instead of heavy enterprise features.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" class="border-t border-slate-200 bg-slate-50">
+          <div class="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
+            <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+              <div>
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Contact</p>
+                <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">Get in touch</h2>
+                <p class="mt-4 max-w-lg text-base leading-8 text-slate-600">
+                  If you would like a guided walkthrough or have questions about whether Achika fits your workflow, feel free to reach out.
+                </p>
+              </div>
+
+              <div class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+                <dl class="space-y-6">
+                  <div>
+                    <dt class="text-sm font-medium text-slate-500">Email</dt>
+                    <dd class="mt-2 text-base font-medium text-slate-950">
+                      <a href="mailto:hello@achika.lt" class="transition hover:text-slate-700">hello@achika.lt</a>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt class="text-sm font-medium text-slate-500">Demo</dt>
+                    <dd class="mt-2 text-base text-slate-600">Open the live demo directly or request a 30–60 minute walkthrough.</dd>
+                  </div>
+                  <div class="flex flex-col gap-3 sm:flex-row">
+                    <a
+                      href="https://app.achika.lt/demo"
+                      class="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
+                    >
+                      View live demo
+                    </a>
+                    <a
+                      href="mailto:hello@achika.lt?subject=Achika%20walkthrough%20request"
+                      class="inline-flex items-center justify-center rounded-2xl border border-slate-300 px-5 py-3 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:text-slate-950"
+                    >
+                      Request a walkthrough
+                    </a>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="border-t border-slate-200 bg-white">
+        <div class="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-8 text-sm text-slate-500 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+          <div>
+            <div class="font-medium text-slate-900">Achika</div>
+            <div>Order and inventory management for small manufacturers and distributors.</div>
+          </div>
+
+          <div class="flex flex-wrap gap-x-6 gap-y-2">
+            <a href="https://app.achika.lt/" class="transition hover:text-slate-900">Open app</a>
+            <a href="https://app.achika.lt/demo" class="transition hover:text-slate-900">View demo</a>
+            <a href="#" class="transition hover:text-slate-900">Privacy Policy</a>
+            <a href="#" class="transition hover:text-slate-900">Terms</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      const toggle = document.getElementById('menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('icon-open');
+      const iconClose = document.getElementById('icon-close');
+      toggle.addEventListener('click', () => {
+        const isOpen = !menu.classList.contains('hidden');
+        menu.classList.toggle('hidden', isOpen);
+        iconOpen.classList.toggle('hidden', !isOpen);
+        iconClose.classList.toggle('hidden', isOpen);
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+      });
+      menu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          menu.classList.add('hidden');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    </script>
+  </body>
+</html>
