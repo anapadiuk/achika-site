@@ -1,4 +1,4 @@
-# Achika — Marketing site
+# achika-site — Marketing site
 
 Static marketing site for [achika.lt](https://achika.lt). Two languages: English (root) and Lithuanian (`/lt`).
 
