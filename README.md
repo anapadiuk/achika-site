@@ -61,3 +61,6 @@ Language switcher is in the header on both pages.
 Static files only — deploy `index.html`, `lt/`, and `public/` to any static host (Netlify, Vercel, GitHub Pages, etc.).
 
 No build step required on the host — `public/tailwind.css` is committed.
+
+
+alias deploy-achika="cd /opt/achika-site && git pull"
