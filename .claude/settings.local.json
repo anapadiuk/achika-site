@@ -2,9 +2,7 @@
   "permissions": {
     "allow": [
       "Bash(git add:*)",
-      "Bash(git commit -m ':*)",
-      "Bash(mv \"C:\\\\code\\\\achika\\\\achika-site\\\\docs\\\\_inbox\\\\investor-review-backend.md\" \"C:\\\\code\\\\achika\\\\achika-site\\\\docs\\\\archive\\\\\" && mv \"C:\\\\code\\\\achika\\\\achika-site\\\\docs\\\\_inbox\\\\investor-review-delta.md\" \"C:\\\\code\\\\achika\\\\achika-site\\\\docs\\\\archive\\\\\")",
-      "Bash(mv \"C:\\\\code\\\\achika\\\\achika-site\\\\docs\\\\_inbox\\\\investor-review-frontend.md\" \"C:\\\\code\\\\achika\\\\achika-site\\\\docs\\\\archive\\\\\" && mv \"C:\\\\code\\\\achika\\\\achika-site\\\\docs\\\\_inbox\\\\market-investment-assessment.md\" \"C:\\\\code\\\\achika\\\\achika-site\\\\docs\\\\archive\\\\\")"
+      "Bash(git commit -m ':*)"
     ]
   }
 }
