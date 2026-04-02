@@ -1,0 +1,236 @@
+# Technical Due Diligence Summary
+
+> **Repository:** `anapadiuk/degmeda.b2b`  
+> **Review Date:** 2026-03-30  
+> **Reviewer Role:** Technical Investor / Former CTO  
+> **Product:** Multi-tenant B2B platform for manufacturing and selling premium charred wood siding  
+> **Stack:** .NET 10, C# (99.3%), PostgreSQL, EF Core, Minimal APIs, JWT Auth, Docker
+
+---
+
+## Investment Readiness Score
+
+| Dimension | Score | Justification |
+|---|---|---|
+| **Codebase Maturity** | 7/10 | Clean Architecture with CQRS is well-structured. RBAC is now **fully implemented** — endpoints use `HasPermission(...)` with granular permission constants. Session-based permission distribution replaces JWT-only approach. Two new ADRs (Forgot Password JWT Flow, Tenant Settings Ownership Model) demonstrate continued architectural governance. API error contract still "Proposed." |
+| **Scalability Readiness** | 5/10 | Unchanged fundamentally — single-DB multi-tenancy via EF query filters. Atomic order counter in place. No caching, no message queue, no horizontal scale validation. Tenant Settings Ownership Model ADR is a positive modularity signal for future decomposition. |
+| **Maintainability** | 7/10 | ADR count grew from 11→13 accepted. Architecture tests enforce layer boundaries. Test infrastructure expanded significantly (`Common.Testing` shared library, `AuthorizationPolicyIntegrationTests`, `ErrorContractIntegrationTests`, `ProblemDetailsContractTests`). CI now includes `test-profiles.yml` and `docker-publish.yml` alongside `docs-check.yml`. Documentation drift risk reduced. |
+| **Team Scalability** | 6/10 | Session permissions guide (`docs/archive/2026-03-04/frontend-session-permissions-guide.md`) demonstrates cross-repo coordination. Backend-frontend contract updated with full endpoint→permission mapping. Open issues are well-structured (technical debt tracking). But: still single contributor, bus factor = 1. |
+| **Operational Risk** | 5/10 | **Major improvement:** CI/CD now includes `docker-publish.yml` (container build/push) and `test-profiles.yml` (automated test execution). This was the #1 operational blocker last month. Health checks, Serilog + correlation ID remain in place. Still no production observability (metrics/tracing/alerting), no DR runbooks. |
+
+---
+
+## Strengths (Why This Is Investable)
+
+### 1. RBAC Is Now Implemented End-to-End ✅ (Previously: High Risk)
+The most critical security gap from the Feb review is **resolved**. Endpoints across all domains (Catalog, CRM, Inventory, Core) now use `.HasPermission(Permissions.*)` with granular permission constants. Evidence: `src/Degmeda.B2B.Api/Endpoints/Crm/Orders/Cancel.cs` → `HasPermission(Permissions.CrmOrderCancel)`, `src/Degmeda.B2B.Api/Endpoints/Core/Tenants/GetById.cs` → `HasPermission(Permissions.CoreTenantRead)`, and consistently across endpoints. `PermissionProvider.GetForUserIdAsync` is fully implemented with role→permission mapping and is covered by tests (`PermissionProviderTests`).
+
+### 2. CI/CD Pipeline Exists ✅ (Previously: High Risk)
+Three GitHub Actions workflows now exist:
+- `docker-publish.yml` — container build and push to GHCR
+- `test-profiles.yml` — automated test execution
+- `docs-check.yml` — documentation structure enforcement
+
+This resolves the previous "zero automated protection against regressions" finding.
+
+### 3. Integration Test Suite Is Meaningful ✅ (Previously: High Risk — Skeletal)
+New test infrastructure includes:
+- `Common.Testing` — shared test library (builders, fixtures)
+- `AuthorizationPolicyIntegrationTests` — tests unauthenticated 401, Guest 403 on approve, Manager 200 on search, User 200 on warehouse read, User 403 on create supplier
+- `ErrorContractIntegrationTests` — tests 500 on duplicate inventory rows, 404 on missing tenant
+- `ProblemDetailsContractTests` — validation error contract tests
+- 7 test projects total (up from 6 with addition of `Common.Testing`)
+
+The test coverage now explicitly covers authorization policies and error contracts — two of the three highest-priority gaps from last review.
+
+### 4. Session-Based Permission Distribution
+`docs/archive/2026-03-04/frontend-session-permissions-guide.md` documents a move from JWT-claim-based permissions to session-response-based permissions (`POST /auth/sign-in`, `POST /auth/switch-tenant`, `GET /auth/session` all return `permissions[]` array). This is architecturally superior and decouples frontend from JWT token shape.
+
+### 5. Architecture Is Genuinely Solid (Unchanged)
+Clean Architecture with enforced layer boundaries (`tests/Degmeda.B2B.Architecture.Tests`), domain model reflecting real manufacturing complexity, multi-tenancy via EF Core Global Query Filters — all remain strong.
+
+### 6. Documentation Culture Continues to Improve
+13 accepted ADRs (up from 11). Two new since Feb: `2026-02-28-forgot-password-jwt-flow.md` and `2026-03-04-tenant-settings-ownership-model.md`. Task-indexed documentation (`docs/current/index-by-task.md`) updated. Backend-frontend contract updated with full permission endpoint matrix.
+
+### 7. Soft Delete and Audit Trail Remain Baked In
+
+---
+
+## Key Technical Risks
+
+### Risk 1: API Error Contract Still Not Standardized
+- **Description:** ADR `2026-02-15-api-error-contract-standardization.md` remains status: **Proposed**, not Accepted. `ErrorType.Failure` mapping to HTTP 500 for business errors persists. The new `ErrorContractIntegrationTests` test the current behavior but don't enforce the proposed standard.
+- **Evidence:** `docs/decisions/README.md` — still listed under "Proposed ADRs."
+- **Business impact:** Frontend error handling remains brittle. Customer-facing error messages may leak internal details. Monitoring cannot reliably distinguish business failures from infrastructure failures.
+- **Risk level:** 🟡 **Medium**
+
+### Risk 2: Test Suite Has Intermittent Failures in Full-Solution Run
+- **Description:** GitHub Issue #16 documents that `dotnet test degmeda.b2b.slnx` (full run) intermittently fails with "The entry point exited without ever building an IHost." Tests pass in isolation but fail when run together — indicating test host startup concurrency issues.
+- **Evidence:** `https://github.com/anapadiuk/degmeda.b2b/issues/16` — explicitly deferred.
+- **Business impact:** CI pipeline reliability is undermined. Flaky test failures erode developer trust in automation. May force test parallelism workarounds that slow CI. This is a known issue the team has intentionally deferred.
+- **Risk level:** 🟡 **Medium**
+
+### Risk 3: Single Database, No Sharding or Read Replica Strategy
+- **Description:** Unchanged from Feb — all tenants share one PostgreSQL database.
+- **Risk level:** 🟡 **Medium** (acceptable for current stage)
+
+### Risk 4: Single-Developer Bus Factor
+- **Description:** All commits still originate from one developer. No evidence of code review or pair programming. Documentation continues to be excellent but untested by a second human contributor.
+- **Risk level:** 🔴 **High**
+
+### Risk 5: No Production Observability Beyond Basic Logging
+- **Description:** Serilog + correlation IDs and health check remain. No metrics (Prometheus/OTEL), no distributed tracing, no alerting.
+- **Risk level:** 🟡 **Medium**
+
+### Risk 6: No Changelog/Release Notes Process
+- **Description:** GitHub Issue #17 documents the absence of a formal changelog/release notes process. For enterprise customers tracking breaking changes across versions, this creates friction.
+- **Evidence:** `https://github.com/anapadiuk/degmeda.b2b/issues/17`
+- **Risk level:** 🟢 **Low**
+
+---
+
+## Hidden Costs & Technical Debt
+
+### Must-Pay Debt (Blocks Enterprise Sales)
+
+| Item | Why It Cannot Wait | Estimated Effort |
+|---|---|---|
+| **API error contract standardization** (ADR-02-15 → Accept & Enforce) | Frontend integration fragility, misleading error messages | 2 weeks |
+| **Stabilize full-solution test run** (Issue #16) | CI reliability, developer trust in automation | 1 week |
+| **Production secrets management enforcement** | `.env.example` exists but runtime secret injection needs formalization | 1 week |
+
+### Should-Pay Debt (Blocks Team Scaling)
+
+| Item | Why It Will Compound | Estimated Effort |
+|---|---|---|
+| **Production observability** (metrics, tracing, alerting) | Enterprise SLAs, incident response MTTR | 2–3 weeks |
+| **Changelog/release notes process** (Issue #17) | Enterprise contract requirement | 3 days |
+| **DR/backup runbook** | No documented recovery procedure | 3 days |
+
+---
+
+## Team Scaling Readiness
+
+### Adding 1 Engineer
+**Difficulty: Low.** *(Improved from Low-Medium.)*  
+CI/CD pipeline now provides automated safety net. 13 ADRs + session permissions guide + backend-frontend contract with full endpoint matrix provide excellent onboarding material. RBAC is consistently enforced — no more pattern ambiguity for new engineers.
+
+### Adding 3 Engineers
+**Difficulty: Low-Medium.** *(Improved from Medium.)*  
+CI now enforces tests and docs. RBAC implementation is consistent across domains — engineers will follow the pattern. Remaining friction: API error contract is still "Proposed" (inconsistency risk), and full-solution test flakiness needs resolution.
+
+### Adding 8 Engineers
+**Difficulty: Medium.** *(Improved from High.)*  
+Domain ownership boundaries (`Catalog`, `Crm`, `Inventory`, `Core`) are well-defined. CI pipeline exists. The main blockers: observability for team attribution, full-solution test stability, and the need for a tech lead role to own cross-domain decisions.
+
+### Most Knowledge-Heavy Areas
+
+| Area | Risk | Key Files |
+|---|---|---|
+| Order + OrderItem state machines | Complex invariants, partial fulfillment logic | `src/Degmeda.B2B.Domain/Crm/`, ADRs 2026-02-07 |
+| Tenant isolation mechanics | Implicit via EF query filters | `src/Degmeda.B2B.Infrastructure/Database/`, ADR-02-06 |
+| Permission system end-to-end | Role→permission mapping + endpoint enforcement | `src/Degmeda.B2B.Infrastructure/Authorization/`, `docs/current/authorization-matrix.md` |
+| Tenant Settings Ownership Model | New cross-domain pattern | ADR `2026-03-04-tenant-settings-ownership-model.md` |
+
+---
+
+## Architecture & Domain Assessment
+
+### Alignment Verdict: **Strongly Aligned** (Unchanged)
+
+The system remains meaningfully aligned with the manufacturing B2B domain. Key improvement this month: Tenant Settings Ownership Model ADR (`2026-03-04`) shows conscious modularity thinking — settings are split by business area (CRM, Inventory) with clear ownership boundaries. This is a positive signal for future team scaling.
+
+---
+
+## Operational & Production Readiness
+
+| Dimension | Status | Change vs Feb |
+|---|---|---|
+| **Logging** | ✅ Present | Unchanged |
+| **Health Checks** | ✅ Present | Unchanged |
+| **Metrics / Tracing** | ❌ Absent | Unchanged |
+| **Alerting** | ❌ Absent | Unchanged |
+| **CI/CD** | ✅ Present | 🆕 `docker-publish.yml` + `test-profiles.yml` added |
+| **Migrations** | ⚠️ Partial | Unchanged |
+| **Containerization** | ✅ Present | Unchanged |
+| **Secret Management** | ⚠️ Partial | Unchanged |
+| **Recovery / DR** | ❌ Absent | Unchanged |
+| **CORS** | ⚠️ Risk | Unchanged |
+
+**Overall production posture: Improved from "Foundational" to "Development-ready with CI/CD." Estimated gap to enterprise-readiness: 4–6 weeks.**
+
+---
+
+## Documentation & Knowledge Transfer
+
+### Verdict: **Strong — Best-in-Class for Solo-Dev Stage**
+
+**Improvements since Feb:**
+- 13 accepted ADRs (up from 11)
+- Full endpoint→permission matrix in `docs/current/backend-frontend-contract.md`
+- Session permissions integration guide for frontend
+- Changelog process formally identified as needed (Issue #17)
+
+**Persistent risk:** Single-author knowledge base. No second human contributor has validated the docs.
+
+---
+
+## Investment Recommendations
+
+### Fix BEFORE Serious Scaling
+
+| # | Item | Why It Cannot Wait |
+|---|---|---|
+| 1 | **Accept and enforce API error contract** (ADR-02-15) | Frontend coupling fragility increases cost of every sprint |
+| 2 | **Stabilize full-solution test run** (Issue #16) | CI reliability undermines confidence |
+| 3 | **Hire/onboard at least one additional engineer** | Bus factor = 1 remains the single highest risk |
+
+### Can Wait
+
+- Production observability (metrics, tracing)
+- Changelog process formalization
+- DR/backup runbooks
+- Database scaling strategy
+
+### Acceptable Technical Risk
+
+- Single database for current tenant count
+- Some handler logic duplication with domain entities
+- No performance/load testing baseline yet
+
+---
+
+## 6-Month Improvement Roadmap (Investment-Oriented)
+
+| Priority | Initiative | Estimated Cost | Expected ROI | Notes |
+|---|---|---|---|---|
+| **Must** | Accept and enforce API error contract (ADR-02-15) | Low | Velocity | Reduces frontend integration cost for every sprint |
+| **Must** | Stabilize full-solution test run (Issue #16) | Low | Stability | CI reliability is prerequisite for team trust |
+| **Must** | Hire 2nd engineer, validate onboarding with existing docs | Medium | Risk reduction | Bus factor = 1 is the #1 investment risk |
+| **Should** | Production observability baseline (metrics, tracing, alerting) | Medium | Stability | Required for enterprise SLAs |
+| **Should** | Establish changelog/release notes process | Low | Velocity | Enterprise procurement requirement |
+| **Should** | Expand integration tests (order lifecycle, inventory allocation) | Medium | Stability | Revenue-critical path protection |
+| **Nice** | Database scaling strategy document | Low | Risk reduction | Planning, not implementation yet |
+| **Nice** | Performance/load testing baseline | Medium | Stability | Validates scaling assumptions |
+
+---
+
+## Final Verdict
+
+**Invest.** *(Upgraded from "Conditional invest.")*
+
+The codebase has resolved the three highest-risk items from the February review:
+1. ✅ **RBAC is implemented end-to-end** — no more security gap
+2. ✅ **CI/CD pipeline exists** — `docker-publish.yml` + `test-profiles.yml` + `docs-check.yml`
+3. ✅ **Integration tests cover authorization and error contracts** — no longer "skeletal"
+
+The remaining conditions for confident investment are:
+- Hire a 2nd engineer to eliminate bus factor = 1
+- Accept and enforce API error contract standard
+- Stabilize full-solution test run
+
+These are execution tasks, not architectural redesigns. The investment thesis is now technically supported.
+
+---
+
+*Review conducted by technical analysis of repository `anapadiuk/degmeda.b2b` as of 2026-03-30. All findings are based on code and documentation present in the repository at the time of review.*

@@ -1,0 +1,64 @@
+# Technical Due Diligence Summary
+
+> **Repository:** `anapadiuk/degmeda.b2b.web`  
+> **Review Date:** 2026-03-30  
+> **Reviewer Role:** Technical Investor / Former CTO  
+> **Scope:** Angular frontend; backend (`anapadiuk/degmeda.b2b`) reviewed separately.  
+> **Stack:** Angular 21 · TypeScript 5.9 · Tailwind CSS 4 · Angular Material 21 · Signals + RxJS · Transloco · Vitest · Docker / nginx
+
+---
+
+## Investment Readiness Score
+
+| Dimension | Score | Justification |
+|---|---|---|
+| **Codebase Maturity** | 6/10 | Modern stack, solid patterns. New features added (settings pages with .spec.ts files). ~22 open technical-debt issues (up from ~16). Vitest execution is blocked by sandbox `EPERM` in current environment — tests exist but cannot be reliably run. |
+| **Scalability Readiness** | 5/10 | Unchanged — feature isolation + lazy loading scale well. Single Docker/nginx deployment. No CDN/SSR. CollectionStore still "under evaluation." |
+| **Maintainability** | 7/10 | ADR system, docs-guard, UI-action guard, editorconfig/Prettier all active. New: settings feature has paired spec + review docs with `.spec.ts` files. ~22 open TD issues remain a drag. |
+| **Team Scalability** | 5/10 | Unchanged fundamentally. Documentation is excellent but bus factor = 1 persists. |
+| **Operational Risk** | 4/10 | Docker delivery to GHCR works. No HTTPS, no CSP, no health check, no monitoring. Backend-blocking issue (warehouse movements, Issue #1) persists. |
+
+---
+
+## Strengths
+
+### 1–7: Same as February (modern stack, ADRs, CollectionStore, domain coverage, AI culture, feature isolation, containerized delivery)
+
+### 8. Test Files Now Exist (Partial Improvement)
+Settings feature has `.spec.ts` files (`settings-crm.page.spec.ts`, `settings-inventory.page.spec.ts`, `inventory-tenant-settings.store.spec.ts`). This is the first evidence of automated test files in the source tree, previously noted as "near-zero."
+
+### 9. Transparent Debt Tracking Continues
+~22 open GitHub issues labeled `type:technical-debt` (up from ~19). New issues include #20 (migrate auth forms to signal forms), #21 (move DefaultWarehouse setting), #22 (revisit orders status board UX). Debt visibility remains a positive signal.
+
+---
+
+## Key Technical Risks
+
+### Risk 1: Automated Tests Cannot Run (Sandbox EPERM)
+- **Description:** `.spec.ts` files now exist but `npx vitest run` is blocked by worker spawn `EPERM` in the development environment. Tests are not runnable, meaning their correctness cannot be verified. CI pipeline still does not run `npm test`.
+- **Evidence:** `docs/current/features/settings-feature-review.md` — Vitest execution blocked by `EPERM`.
+- **Risk Level:** 🔴 **High** (unchanged)
+
+### Risks 2–10: Same as February (bus factor, CollectionStore, no tests in CI, placeholder DTOs, JWT permissions, no HTTPS/CSP, deep-link fragility, warehouse movements blocked, hardcoded i18n strings)
+
+---
+
+## Hidden Costs & Technical Debt
+
+Same as February plus:
+- **TEST-EXEC**: Resolve Vitest `EPERM` sandbox issue (~1–3 days investigation)
+- **TD-030**: Revisit orders status board UX (~1 week)
+- **TD-001**: Move DefaultWarehouse setting (~2 days)
+- **TD-029**: Migrate auth forms to signal forms (~1 week)
+
+**Total hidden cost estimate:** ~14–24 weeks (up from 12–22 weeks due to additional identified debt items).
+
+---
+
+## Final Verdict
+
+**Investable with conditions** (unchanged). The frontend has made marginal progress (test files exist, new features documented), but the core risks persist: no runnable tests, no tests in CI, bus factor = 1, CollectionStore under evaluation. The backend improvements (RBAC enforcement, session permissions API) create a stronger foundation that the frontend can build on.
+
+---
+
+*Review conducted by technical analysis of repository `anapadiuk/degmeda.b2b.web` as of 2026-03-30. All findings are based on code and documentation present in the repository at the time of review.*
