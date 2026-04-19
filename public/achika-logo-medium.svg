@@ -1,22 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg"
-     viewBox="-0.516 -1.289 161.771 33.884"
-     role="img"
-     aria-label="Achika">
-  <!-- Mark: equilateral triangle side=25.87px. Mark height=32.83px (1.2× cap-height). -->
-  <g stroke="#047857" stroke-width="1.119" stroke-linecap="round" fill="none">
-    <line x1="3.482" y1="7.213" x2="3.482" y2="24.127"/>
-    <line x1="7.359" y1="4.975" x2="21.540" y2="13.183"/>
-    <line x1="7.359" y1="26.365" x2="21.540" y2="18.157"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 64" role="img" aria-label="Achika">
+  <g stroke="#047857" stroke-width="2.75" stroke-linecap="round" fill="none">
+    <line x1="24" y1="32" x2="16" y2="32"></line>
+    <line x1="36.46" y1="24.27" x2="40.46" y2="17.34"></line>
+    <line x1="36.46" y1="39.73" x2="40.46" y2="46.66"></line>
   </g>
-  <g fill="#020617">
-    <circle cx="3.482" cy="2.736" r="3.482"/>
-    <circle cx="3.482" cy="28.604" r="3.482"/>
-    <rect x="22.402" y="12.188" width="6.964" height="6.964"/>
+  <rect x="26" y="26" width="12" height="12" fill="#020617"></rect>
+  <g fill="#047857">
+    <circle cx="10" cy="32" r="4"></circle>
+    <circle cx="43.46" cy="12.14" r="4"></circle>
+    <circle cx="43.46" cy="51.86" r="4"></circle>
   </g>
-  <!-- Wordmark: Roboto Flex wght=500 size=38, cap-center aligned with mark-center -->
-  <text x="37.366" y="30.096" fill="#047857"
-        font-family="'Roboto Flex', system-ui, sans-serif"
-        font-size="38"
-        font-weight="500"
-        style="font-variation-settings: 'wght' 500, 'opsz' 144;">Achika</text>
+  <text x="58" y="44" fill="#047857" font-family="&#39;Roboto Flex&#39;, system-ui, sans-serif" font-size="34" font-weight="500" letter-spacing="-0.3" style="font-variation-settings:&#39;wght&#39; 500,&#39;opsz&#39; 144">Achika</text>
 </svg>
