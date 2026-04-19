@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="-0.511 -7.504 60.049 67.015"
+     role="img"
+     aria-label="Achika mark">
+  <g stroke="#047857" stroke-width="2.250" stroke-linecap="round" fill="none">
+    <line x1="7.000" y1="9.000" x2="7.000" y2="43.000"/>
+    <line x1="14.794" y1="4.500" x2="43.301" y2="21.000"/>
+    <line x1="14.794" y1="47.500" x2="43.301" y2="31.000"/>
+  </g>
+  <g fill="#020617">
+    <circle cx="7.000" cy="0.000" r="7.000"/>
+    <circle cx="7.000" cy="52.000" r="7.000"/>
+    <rect x="45.033" y="19.000" width="14.000" height="14.000"/>
+  </g>
+</svg>

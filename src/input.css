@@ -1,1 +1,11 @@
+@import './tokens.css';
 @import "tailwindcss";
+
+@theme {
+  --color-fg-default: var(--fg-default);
+  --color-fg-strong: var(--fg-strong);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-fg-placeholder: var(--fg-placeholder);
+  --color-fg-brand: var(--fg-brand);
+}

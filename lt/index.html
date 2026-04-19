@@ -19,30 +19,30 @@
     <link rel="stylesheet" href="../public/tailwind.css">
     <link rel="icon" href="../public/favicon.svg" type="image/svg+xml">
   </head>
-  <body class="bg-slate-50 text-slate-900 antialiased">
+  <body class="bg-slate-50 text-fg-default antialiased">
     <div class="min-h-screen">
       <header class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
           <a href="#top">
-            <img src="../public/logo.svg" alt="Achika" class="h-10">
+            <img src="../public/achika-logo-regular.svg" alt="Achika" class="h-10">
           </a>
 
-          <nav class="hidden items-center gap-8 text-sm text-slate-600 md:flex">
-            <a href="#product" class="transition hover:text-emerald-700">Produktas</a>
-            <a href="#fit" class="transition hover:text-emerald-700">Kam skirta</a>
-            <a href="#about" class="transition hover:text-emerald-700">Apie</a>
-            <a href="#contact" class="transition hover:text-emerald-700">Kontaktai</a>
+          <nav class="hidden items-center gap-8 text-sm text-fg-muted md:flex">
+            <a href="#product" class="transition hover:text-fg-brand">Produktas</a>
+            <a href="#fit" class="transition hover:text-fg-brand">Kam skirta</a>
+            <a href="#about" class="transition hover:text-fg-brand">Apie</a>
+            <a href="#contact" class="transition hover:text-fg-brand">Kontaktai</a>
           </nav>
 
           <div class="flex items-center gap-4">
             <div class="hidden items-center gap-2 text-sm md:flex">
-              <a href="../" class="text-slate-400 transition hover:text-slate-700">EN</a>
+              <a href="../" class="text-fg-placeholder transition hover:text-slate-700">EN</a>
               <span class="text-slate-300">|</span>
-              <span class="font-semibold text-slate-950">LT</span>
+              <span class="font-semibold text-fg-strong">LT</span>
             </div>
             <a
               href="https://app.achika.lt/auth/demo"
-              class="hidden rounded-xl border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:text-slate-950 sm:inline-flex"
+              class="hidden rounded-xl border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:text-fg-strong sm:inline-flex"
             >
               Žiūrėti demo
             </a>
@@ -64,21 +64,21 @@
         </div>
 
         <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-6 py-4">
-          <nav class="flex flex-col gap-1 text-sm text-slate-600">
-            <a href="#product" class="rounded-lg px-3 py-2 transition hover:bg-slate-50 hover:text-slate-950">Produktas</a>
-            <a href="#fit" class="rounded-lg px-3 py-2 transition hover:bg-slate-50 hover:text-slate-950">Kam skirta</a>
-            <a href="#about" class="rounded-lg px-3 py-2 transition hover:bg-slate-50 hover:text-slate-950">Apie</a>
-            <a href="#contact" class="rounded-lg px-3 py-2 transition hover:bg-slate-50 hover:text-slate-950">Kontaktai</a>
+          <nav class="flex flex-col gap-1 text-sm text-fg-muted">
+            <a href="#product" class="rounded-lg px-3 py-2 transition hover:bg-slate-50 hover:text-fg-strong">Produktas</a>
+            <a href="#fit" class="rounded-lg px-3 py-2 transition hover:bg-slate-50 hover:text-fg-strong">Kam skirta</a>
+            <a href="#about" class="rounded-lg px-3 py-2 transition hover:bg-slate-50 hover:text-fg-strong">Apie</a>
+            <a href="#contact" class="rounded-lg px-3 py-2 transition hover:bg-slate-50 hover:text-fg-strong">Kontaktai</a>
           </nav>
           <div class="mt-4 flex items-center gap-3 border-t border-slate-100 pt-4 text-sm">
-            <a href="../" class="text-slate-400 transition hover:text-slate-700">EN</a>
+            <a href="../" class="text-fg-placeholder transition hover:text-slate-700">EN</a>
             <span class="text-slate-300">|</span>
-            <span class="font-semibold text-slate-950">LT</span>
+            <span class="font-semibold text-fg-strong">LT</span>
           </div>
           <div class="mt-4 flex flex-col gap-2">
             <a
               href="https://app.achika.lt/auth/demo"
-              class="inline-flex items-center justify-center rounded-xl border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:text-slate-950"
+              class="inline-flex items-center justify-center rounded-xl border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:text-fg-strong"
             >
               Žiūrėti demo
             </a>
@@ -97,21 +97,21 @@
           <div class="absolute inset-0 -z-10 bg-linear-to-b from-white via-slate-50 to-slate-100"></div>
           <div class="mx-auto grid max-w-7xl gap-14 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-28">
             <div class="max-w-2xl">
-              <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-sm text-slate-600 shadow-sm">
+              <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-sm text-fg-muted shadow-sm">
                 <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
                 Achika Platform
               </div>
 
-              <h1 class="text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
-                Kontroliuokite <span class="text-emerald-700">užsakymus ir atsargas</span>
-                <span class="text-slate-500">kai verslas auga sparčiau nei skaičiuoklės</span>
+              <h1 class="text-4xl font-semibold tracking-tight text-fg-strong sm:text-5xl lg:text-6xl">
+                Kontroliuokite <span class="text-fg-brand">užsakymus ir atsargas</span>
+                <span class="text-fg-subtle">kai verslas auga sparčiau nei skaičiuoklės</span>
               </h1>
 
-              <p class="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+              <p class="mt-6 max-w-xl text-lg leading-8 text-fg-muted">
                 Paprasta sistema mažiems gamintojams ir platintojams, kurie pradeda pralenkti „Excel", el. paštą ir rankiniu būdu atliekamus veiksmus.
               </p>
 
-              <p class="mt-4 text-base text-slate-500">
+              <p class="mt-4 text-base text-fg-subtle">
                 Jokių sudėtingų ERP sistemų. Jokio sunkaus diegimo.
               </p>
 
@@ -124,13 +124,13 @@
                 </a>
                 <a
                   href="#contact"
-                  class="inline-flex items-center justify-center rounded-2xl border border-emerald-200 bg-white px-6 py-3 text-base font-medium text-emerald-700 transition hover:bg-emerald-50"
+                  class="inline-flex items-center justify-center rounded-2xl border border-emerald-200 bg-white px-6 py-3 text-base font-medium text-fg-brand transition hover:bg-emerald-50"
                 >
                   Užsisakyti apžvalgą
                 </a>
               </div>
 
-              <div class="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-500">
+              <div class="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-fg-subtle">
                 <span>Registracija nereikalinga</span>
                 <span>Peržiūra trunka kelias minutes</span>
                 <span>Tikras produkto demo</span>
@@ -142,31 +142,31 @@
                 <div class="rounded-4xl border border-slate-200 bg-slate-50 p-4">
                   <div class="mb-4 flex items-center justify-between border-b border-slate-200 pb-4">
                     <div>
-                      <div class="text-sm font-semibold text-slate-900">Operacijų apžvalga</div>
-                      <div class="text-xs text-slate-500">Užsakymai, atsargos ir vykdymas vienoje vietoje</div>
+                      <div class="text-sm font-semibold text-fg-default">Operacijų apžvalga</div>
+                      <div class="text-xs text-fg-subtle">Užsakymai, atsargos ir vykdymas vienoje vietoje</div>
                     </div>
-                    <div class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">Live demo</div>
+                    <div class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-fg-brand">Live demo</div>
                   </div>
 
                   <div class="grid gap-3 sm:grid-cols-3">
                     <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
-                      <div class="text-sm text-slate-500">Atviri užsakymai</div>
-                      <div class="mt-2 text-3xl font-semibold text-slate-950">128</div>
+                      <div class="text-sm text-fg-subtle">Atviri užsakymai</div>
+                      <div class="mt-2 text-3xl font-semibold text-fg-strong">128</div>
                     </div>
                     <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
-                      <div class="text-sm text-slate-500">Vykdytini vienetai</div>
-                      <div class="mt-2 text-3xl font-semibold text-slate-950">342</div>
+                      <div class="text-sm text-fg-subtle">Vykdytini vienetai</div>
+                      <div class="mt-2 text-3xl font-semibold text-fg-strong">342</div>
                     </div>
                     <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
-                      <div class="text-sm text-slate-500">Trūkstamos prekės</div>
-                      <div class="mt-2 text-3xl font-semibold text-slate-950">27</div>
+                      <div class="text-sm text-fg-subtle">Trūkstamos prekės</div>
+                      <div class="mt-2 text-3xl font-semibold text-fg-strong">27</div>
                     </div>
                   </div>
 
                   <div class="mt-4 grid gap-4 lg:grid-cols-[0.95fr_1.05fr]">
                     <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
-                      <div class="mb-3 text-sm font-semibold text-slate-900">Reikalauja dėmesio</div>
-                      <div class="space-y-3 text-sm text-slate-600">
+                      <div class="mb-3 text-sm font-semibold text-fg-default">Reikalauja dėmesio</div>
+                      <div class="space-y-3 text-sm text-fg-muted">
                         <div class="rounded-xl bg-amber-50 p-3 text-amber-900 ring-1 ring-amber-200">
                           <div class="font-medium">Blokuoti vienetai — 18</div>
                           <div class="mt-1 text-amber-800">Pagrindinė priežastis: nėra atsargų</div>
@@ -180,30 +180,30 @@
 
                     <div class="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
                       <div class="mb-3 flex items-center justify-between">
-                        <div class="text-sm font-semibold text-slate-900">Naujausi užsakymai</div>
-                        <div class="text-xs text-slate-500">Atnaujinta ką tik</div>
+                        <div class="text-sm font-semibold text-fg-default">Naujausi užsakymai</div>
+                        <div class="text-xs text-fg-subtle">Atnaujinta ką tik</div>
                       </div>
                       <div class="space-y-3 text-sm">
                         <div class="flex items-center justify-between rounded-xl bg-slate-50 px-3 py-3">
                           <div>
-                            <div class="font-medium text-slate-900">ORD-24031</div>
-                            <div class="text-slate-500">Ąžuolo stalo rinkinys</div>
+                            <div class="font-medium text-fg-default">ORD-24031</div>
+                            <div class="text-fg-subtle">Ąžuolo stalo rinkinys</div>
                           </div>
                           <span class="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">Komplektuojama</span>
                         </div>
                         <div class="flex items-center justify-between rounded-xl bg-slate-50 px-3 py-3">
                           <div>
-                            <div class="font-medium text-slate-900">ORD-24032</div>
-                            <div class="text-slate-500">Valgomojo kėdės</div>
+                            <div class="font-medium text-fg-default">ORD-24032</div>
+                            <div class="text-fg-subtle">Valgomojo kėdės</div>
                           </div>
                           <span class="rounded-full bg-violet-50 px-3 py-1 text-xs font-medium text-violet-700">Tiekiama</span>
                         </div>
                         <div class="flex items-center justify-between rounded-xl bg-slate-50 px-3 py-3">
                           <div>
-                            <div class="font-medium text-slate-900">ORD-24033</div>
-                            <div class="text-slate-500">Lentynų vienetas</div>
+                            <div class="font-medium text-fg-default">ORD-24033</div>
+                            <div class="text-fg-subtle">Lentynų vienetas</div>
                           </div>
-                          <span class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">Paruošta</span>
+                          <span class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-fg-brand">Paruošta</span>
                         </div>
                       </div>
                     </div>
@@ -217,29 +217,29 @@
         <section id="product" class="border-y border-slate-200 bg-white">
           <div class="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
             <div class="max-w-3xl">
-              <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Produktas</p>
-              <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">Aiški sistema <span class="text-emerald-700">kasdienėms operacijoms</span></h2>
-              <p class="mt-4 text-lg leading-8 text-slate-600">
+              <p class="text-sm font-semibold uppercase tracking-[0.2em] text-fg-subtle">Produktas</p>
+              <h2 class="mt-3 text-3xl font-semibold tracking-tight text-fg-strong sm:text-4xl">Aiški sistema <span class="text-fg-brand">kasdienėms operacijoms</span></h2>
+              <p class="mt-4 text-lg leading-8 text-fg-muted">
                 Achika sujungia darbo proceso dalis, kurios paprastai išsibarsčiusios skaičiuoklėse, žinutėse ir atmintyje.
               </p>
             </div>
 
             <div class="mt-10 grid gap-6 lg:grid-cols-3">
               <article class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-                <div class="text-sm font-semibold text-slate-900">Užsakymai</div>
-                <p class="mt-3 text-sm leading-7 text-slate-600">
+                <div class="text-sm font-semibold text-fg-default">Užsakymai</div>
+                <p class="mt-3 text-sm leading-7 text-fg-muted">
                   Laikykite visus užsakymus vienoje vietoje, stebėkite jų būseną ir palengvinkite komandai matyti, kam reikia dėmesio.
                 </p>
               </article>
               <article class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-                <div class="text-sm font-semibold text-slate-900">Atsargos</div>
-                <p class="mt-3 text-sm leading-7 text-slate-600">
+                <div class="text-sm font-semibold text-fg-default">Atsargos</div>
+                <p class="mt-3 text-sm leading-7 text-fg-muted">
                   Matykite, kas yra sandėlyje, ko trūksta ir ko laukiama iš ateinančių tiekimų.
                 </p>
               </article>
               <article class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-                <div class="text-sm font-semibold text-slate-900">Vykdymas</div>
-                <p class="mt-3 text-sm leading-7 text-slate-600">
+                <div class="text-sm font-semibold text-fg-default">Vykdymas</div>
+                <p class="mt-3 text-sm leading-7 text-fg-muted">
                   Stebėkite, kas tiekiama, gaminama, komplektuojama ir rengiama pristatymui be nuolatinio rankinio tikrinimo.
                 </p>
               </article>
@@ -251,28 +251,28 @@
           <div class="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
             <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
               <div>
-                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Kodėl tai tampa naudinga</p>
-                <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-fg-subtle">Kodėl tai tampa naudinga</p>
+                <h2 class="mt-3 text-3xl font-semibold tracking-tight text-fg-strong sm:text-4xl">
                   Kai užsakymų apimtis auga, skaičiuoklės tampa sunkiau valdomos
                 </h2>
               </div>
 
               <div class="grid gap-4 sm:grid-cols-2">
                 <div class="rounded-3xl border border-slate-200 bg-white p-6">
-                  <div class="text-base font-medium text-slate-900">Užsakymai pamestami arba vėluoja</div>
-                  <p class="mt-3 text-sm leading-7 text-slate-600">Darbo eigą tampa sunkiau sekti, kai informacija išsibarsčiusi keliose vietose.</p>
+                  <div class="text-base font-medium text-fg-default">Užsakymai pamestami arba vėluoja</div>
+                  <p class="mt-3 text-sm leading-7 text-fg-muted">Darbo eigą tampa sunkiau sekti, kai informacija išsibarsčiusi keliose vietose.</p>
                 </div>
                 <div class="rounded-3xl border border-slate-200 bg-white p-6">
-                  <div class="text-base font-medium text-slate-900">Atsargos neaiškios</div>
-                  <p class="mt-3 text-sm leading-7 text-slate-600">Sunku žinoti, kas šiuo metu prieinama ir ko dar laukiama.</p>
+                  <div class="text-base font-medium text-fg-default">Atsargos neaiškios</div>
+                  <p class="mt-3 text-sm leading-7 text-fg-muted">Sunku žinoti, kas šiuo metu prieinama ir ko dar laukiama.</p>
                 </div>
                 <div class="rounded-3xl border border-slate-200 bg-white p-6">
-                  <div class="text-base font-medium text-slate-900">Žinios sukoncentruotos</div>
-                  <p class="mt-3 text-sm leading-7 text-slate-600">Per daug priklauso nuo vieno žmogaus, prisimenant dabartinę užsakymų ir atsargų būseną.</p>
+                  <div class="text-base font-medium text-fg-default">Žinios sukoncentruotos</div>
+                  <p class="mt-3 text-sm leading-7 text-fg-muted">Per daug priklauso nuo vieno žmogaus, prisimenant dabartinę užsakymų ir atsargų būseną.</p>
                 </div>
                 <div class="rounded-3xl border border-slate-200 bg-white p-6">
-                  <div class="text-base font-medium text-slate-900">Klausimai apie būseną nesibaigia</div>
-                  <p class="mt-3 text-sm leading-7 text-slate-600">Komanda nuolat prašo atnaujinimų, nes nėra vienos vietos, kur patikrinti eigą.</p>
+                  <div class="text-base font-medium text-fg-default">Klausimai apie būseną nesibaigia</div>
+                  <p class="mt-3 text-sm leading-7 text-fg-muted">Komanda nuolat prašo atnaujinimų, nes nėra vienos vietos, kur patikrinti eigą.</p>
                 </div>
               </div>
             </div>
@@ -283,9 +283,9 @@
           <div class="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
             <div class="grid gap-12 lg:grid-cols-2">
               <div>
-                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Kam skirta</p>
-                <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">Sukurta mažoms komandoms, valdančioms fizinius produktus</h2>
-                <ul class="mt-6 space-y-4 text-base text-slate-600">
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-fg-subtle">Kam skirta</p>
+                <h2 class="mt-3 text-3xl font-semibold tracking-tight text-fg-strong sm:text-4xl">Sukurta mažoms komandoms, valdančioms fizinius produktus</h2>
+                <ul class="mt-6 space-y-4 text-base text-fg-muted">
                   <li class="flex gap-3"><span class="mt-2 h-2.5 w-2.5 rounded-full bg-slate-900"></span><span>Maži gamintojai ir platintojai su 2–10 darbuotojų</span></li>
                   <li class="flex gap-3"><span class="mt-2 h-2.5 w-2.5 rounded-full bg-slate-900"></span><span>Komandos, valdančios užsakymus skaičiuoklėse, el. paštu ar pokalbiuose</span></li>
                   <li class="flex gap-3"><span class="mt-2 h-2.5 w-2.5 rounded-full bg-slate-900"></span><span>Įmonės su augančiu užsakymų kiekiu ir pasikartojančia darbo eiga</span></li>
@@ -294,9 +294,9 @@
               </div>
 
               <div class="rounded-4xl border border-slate-200 bg-slate-50 p-8">
-                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Paprastumas projektavime</p>
-                <h3 class="mt-3 text-2xl font-semibold tracking-tight text-slate-950">Praktinė sistema, o ne įmonių projektas</h3>
-                <div class="mt-6 space-y-5 text-sm leading-7 text-slate-600">
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-fg-subtle">Paprastumas projektavime</p>
+                <h3 class="mt-3 text-2xl font-semibold tracking-tight text-fg-strong">Praktinė sistema, o ne įmonių projektas</h3>
+                <div class="mt-6 space-y-5 text-sm leading-7 text-fg-muted">
                   <p>Paruošta naudoti per vieną dieną.</p>
                   <p>Komanda mato užsakymų būseną be papildomų klausimų.</p>
                   <p>Atsargos atnaujinamos, kai užsakymai juda vykdymo eigoje.</p>
@@ -310,10 +310,10 @@
           <div class="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
             <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
               <div>
-                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Apie</p>
-                <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">Orientuotas produktas tikram operaciniam darbui</h2>
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-fg-subtle">Apie</p>
+                <h2 class="mt-3 text-3xl font-semibold tracking-tight text-fg-strong sm:text-4xl">Orientuotas produktas tikram operaciniam darbui</h2>
               </div>
-              <div class="space-y-5 text-base leading-8 text-slate-600">
+              <div class="space-y-5 text-base leading-8 text-fg-muted">
                 <p>
                   Achika sukūrė Artiom Napadiuk — programuotojas, kuris daugelį metų kūrė operacines sistemas mažam gamintojui. Kai jų pardavėjai paprašė ko nors panašaus, tai tapo atskiru produktu.
                 </p>
@@ -329,9 +329,9 @@
           <div class="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
             <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
               <div>
-                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Kontaktai</p>
-                <h2 class="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">Susisiekite</h2>
-                <p class="mt-4 max-w-lg text-base leading-8 text-slate-600">
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-fg-subtle">Kontaktai</p>
+                <h2 class="mt-3 text-3xl font-semibold tracking-tight text-fg-strong sm:text-4xl">Susisiekite</h2>
+                <p class="mt-4 max-w-lg text-base leading-8 text-fg-muted">
                   Jei norėtumėte vadovaujamos apžvalgos ar turite klausimų apie tai, ar Achika tinka jūsų darbo eigai, drąsiai kreipkitės.
                 </p>
               </div>
@@ -339,20 +339,20 @@
               <div class="rounded-4xl border border-slate-200 bg-white p-8 shadow-sm">
                 <dl class="space-y-6">
                   <div>
-                    <dt class="text-sm font-medium text-slate-500">El. paštas</dt>
-                    <dd class="mt-2 text-base font-medium text-slate-950">
+                    <dt class="text-sm font-medium text-fg-subtle">El. paštas</dt>
+                    <dd class="mt-2 text-base font-medium text-fg-strong">
                       <a href="mailto:artiom@achika.lt" class="transition hover:text-slate-700">artiom@achika.lt</a>
                     </dd>
                   </div>
                   <div>
-                    <dt class="text-sm font-medium text-slate-500">Telefonas</dt>
-                    <dd class="mt-2 text-base font-medium text-slate-950">
+                    <dt class="text-sm font-medium text-fg-subtle">Telefonas</dt>
+                    <dd class="mt-2 text-base font-medium text-fg-strong">
                       <a href="tel:+37065626596" class="transition hover:text-slate-700">+370 656 26 596</a>
                     </dd>
                   </div>
                   <div>
-                    <dt class="text-sm font-medium text-slate-500">Demo</dt>
-                    <dd class="mt-2 text-base text-slate-600">Atidarykite tiesioginę demo versiją arba užsisakykite 30–60 minučių apžvalgą.</dd>
+                    <dt class="text-sm font-medium text-fg-subtle">Demo</dt>
+                    <dd class="mt-2 text-base text-fg-muted">Atidarykite tiesioginę demo versiją arba užsisakykite 30–60 minučių apžvalgą.</dd>
                   </div>
                   <div class="flex flex-col gap-3 sm:flex-row">
                     <a
@@ -363,7 +363,7 @@
                     </a>
                     <a
                       href="mailto:artiom@achika.lt?subject=Achika%20apžvalgos%20užsakymas"
-                      class="inline-flex items-center justify-center rounded-2xl border border-emerald-200 px-5 py-3 text-sm font-medium text-emerald-700 transition hover:bg-emerald-50"
+                      class="inline-flex items-center justify-center rounded-2xl border border-emerald-200 px-5 py-3 text-sm font-medium text-fg-brand transition hover:bg-emerald-50"
                     >
                       Užsisakyti apžvalgą
                     </a>
@@ -376,15 +376,15 @@
       </main>
 
       <footer class="border-t border-slate-200 bg-white">
-        <div class="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-8 text-sm text-slate-500 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+        <div class="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-8 text-sm text-fg-subtle lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div>
-            <div class="font-medium text-slate-900">Achika</div>
+            <div class="font-medium text-fg-default">Achika</div>
             <div>Užsakymų ir atsargų valdymas mažiems gamintojams ir platintojams.</div>
           </div>
 
           <div class="flex flex-wrap gap-x-6 gap-y-2">
-            <a href="https://app.achika.lt/" class="transition hover:text-slate-900">Atidaryti programą</a>
-            <a href="https://app.achika.lt/auth/demo" class="transition hover:text-slate-900">Žiūrėti demo</a>
+            <a href="https://app.achika.lt/" class="transition hover:text-fg-default">Atidaryti programą</a>
+            <a href="https://app.achika.lt/auth/demo" class="transition hover:text-fg-default">Žiūrėti demo</a>
           </div>
         </div>
       </footer>

@@ -1,0 +1,165 @@
+/* ============================================================================
+ * Achika Platform — design tokens
+ * ----------------------------------------------------------------------------
+ * Scope:      app.achika.lt only (NOT marketing site)
+ * Direction:  Linear-inspired compact density for B2B operator UI
+ * Principle:  If you're choosing a value — stop. Use a token. If no token fits,
+ *             add one here. Never inline a raw number in a component.
+ * ============================================================================ */
+
+:root {
+  /* ==========================================================================
+   * RAW PALETTE (private — components should not reference these directly)
+   * Reference the semantic tokens below instead.
+   * ========================================================================== */
+
+  /* Neutral: Tailwind slate (already in use) */
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+  --slate-950: #020617;
+
+  /* Brand: emerald, used sparingly (brand emphasis, success, live dots) */
+  --emerald-500: #10b981;
+  --emerald-600: #059669;
+  --emerald-700: #047857;
+
+  /* ==========================================================================
+   * SEMANTIC TOKENS — this is what components reference
+   * ========================================================================== */
+
+  /* Foreground */
+  --fg-default: var(--slate-900); /* body, primary text */
+  --fg-strong: var(--slate-950); /* page titles, highest contrast */
+  --fg-muted: var(--slate-600); /* secondary text */
+  --fg-subtle: var(--slate-500); /* tertiary, column labels */
+  --fg-placeholder: var(--slate-400); /* input placeholders, hints */
+  --fg-on-dark: #ffffff; /* text on slate-900 backgrounds */
+  --fg-brand: var(--emerald-700); /* inline brand emphasis, links */
+  --fg-on-brand: #ffffff;
+
+  /* Background */
+  --bg-page: var(--slate-50); /* app shell page background */
+  --bg-surface: #ffffff; /* cards, drawers, modals */
+  --bg-hover: var(--slate-50); /* row hover, subtle interactive */
+  --bg-subtle: var(--slate-100); /* secondary surfaces, inline code */
+  --bg-inverse: var(--slate-900); /* sidebar, primary button */
+  --bg-inverse-hover: var(--slate-800);
+
+  /* Border */
+  --border-subtle: var(--slate-200); /* dividers, default cell borders */
+  --border-default: var(--slate-300); /* input borders, card borders */
+  --border-strong: var(--slate-400); /* hover on input borders */
+
+  /* Status (bg / border / fg triplets) */
+  --status-info-bg: #eff6ff;
+  --status-info-border: #bfdbfe;
+  --status-info-fg: #1d4ed8;
+  --status-success-bg: #ecfdf5;
+  --status-success-border: #a7f3d0;
+  --status-success-fg: #047857;
+  --status-warn-bg: #fffbeb;
+  --status-warn-border: #fde68a;
+  --status-warn-fg: #b45309;
+  --status-danger-bg: #fff1f2;
+  --status-danger-border: #fecdd3;
+  --status-danger-fg: #be123c;
+  --status-muted-bg: var(--slate-100);
+  --status-muted-border: var(--slate-200);
+  --status-muted-fg: var(--slate-700);
+
+  /* ==========================================================================
+   * TYPOGRAPHY — Roboto Flex stays. Scale tightened for operator UI.
+   * Note: --text-base is 14px in app (not 16px). This is the operator-UI standard
+   * used by Linear, Notion, Airtable. 16px is too large for data-dense interfaces.
+   * ========================================================================== */
+
+  --font-sans: "Roboto Flex", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --text-xs: 11px; /* eyebrow, trailing meta, column labels */
+  --text-sm: 13px; /* dense table rows, compact body */
+  --text-base: 14px; /* app default body */
+  --text-lg: 16px; /* section headings inside cards */
+  --text-xl: 20px; /* page title */
+  --text-2xl: 24px; /* rare — large in-app hero */
+
+  --leading-tight: 1.2;
+  --leading-snug: 1.4;
+  --leading-normal: 1.5;
+
+  --weight-regular: 400;
+  --weight-medium: 500; /* buttons, labels, nav-active */
+  --weight-semibold: 600; /* headings */
+  /* 700 and 800 deliberately omitted — too loud for operator UI */
+
+  /* ==========================================================================
+   * DENSITY — the core shift. Height tokens for common elements.
+   * These make the density principle explicit and lintable.
+   * ========================================================================== */
+
+  --height-input: 36px; /* replaces MatFormField's ~72px */
+  --height-button: 32px;
+  --height-row: 36px; /* table rows, list rows */
+  --height-sidebar-item: 28px;
+  --height-header: 48px;
+
+  /* ==========================================================================
+   * SPACING — 4px base, shortened scale.
+   * Fewer intermediate values = fewer decisions = more consistency.
+   * ========================================================================== */
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  /* 20, 40, 80 intentionally removed */
+
+  /* ==========================================================================
+   * RADIUS — three values for app. Marketing-size radii live elsewhere.
+   * ========================================================================== */
+
+  --radius-sm: 4px; /* inputs, tight controls, inline chips */
+  --radius-md: 6px; /* buttons, badges, cards-in-table */
+  --radius-lg: 8px; /* drawers, modals, main page cards */
+  --radius-full: 9999px; /* pills — use only for round status badges */
+
+  /* ==========================================================================
+   * SHADOW — very restrained. Most UI is flat. Shadows signal elevation only.
+   * ========================================================================== */
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 4px 10px -2px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 10px 24px -6px rgba(15, 23, 42, 0.1);
+  /* Dramatic shadows (hero, auth) stay on marketing site, not in app */
+
+  /* ==========================================================================
+   * MOTION
+   * ========================================================================== */
+
+  --duration-fast: 100ms; /* hover, focus */
+  --duration-normal: 150ms; /* drawers, dropdowns */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  /* No spring. No scroll-reveal. No entrance animations. */
+
+  /* ==========================================================================
+   * LAYOUT
+   * ========================================================================== */
+
+  --nav-width: 240px;
+  --container-max: 1280px;
+
+  /* Focus ring — emerald-based (replaces the orphan sky-blue accent) */
+  --focus-ring: 0 0 0 2px rgba(16, 185, 129, 0.35);
+}

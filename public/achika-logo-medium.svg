@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="-0.516 -1.289 161.771 33.884"
+     role="img"
+     aria-label="Achika">
+  <!-- Mark: equilateral triangle side=25.87px. Mark height=32.83px (1.2× cap-height). -->
+  <g stroke="#047857" stroke-width="1.119" stroke-linecap="round" fill="none">
+    <line x1="3.482" y1="7.213" x2="3.482" y2="24.127"/>
+    <line x1="7.359" y1="4.975" x2="21.540" y2="13.183"/>
+    <line x1="7.359" y1="26.365" x2="21.540" y2="18.157"/>
+  </g>
+  <g fill="#020617">
+    <circle cx="3.482" cy="2.736" r="3.482"/>
+    <circle cx="3.482" cy="28.604" r="3.482"/>
+    <rect x="22.402" y="12.188" width="6.964" height="6.964"/>
+  </g>
+  <!-- Wordmark: Roboto Flex wght=500 size=38, cap-center aligned with mark-center -->
+  <text x="37.366" y="30.096" fill="#047857"
+        font-family="'Roboto Flex', system-ui, sans-serif"
+        font-size="38"
+        font-weight="500"
+        style="font-variation-settings: 'wght' 500, 'opsz' 144;">Achika</text>
+</svg>
